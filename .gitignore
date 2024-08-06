@@ -3,3 +3,4 @@ docker-compose.yml
 combined.log
 error.log
 .idea
+ormconfig.json

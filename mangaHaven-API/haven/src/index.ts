@@ -1,11 +1,26 @@
+//import { Manga } from "./Services/Database/Entity/Manga";
 import Koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
+import { AppDataSource } from './Services/Database/Connection/createConnection';
 import logger from './Logs/logger';
 import { middleWareError } from './Error/MidleWareError';
 
+//action imports
+import mangaRouter from './Services/Routes/MangasRouter';
+import * as process from "node:process";
+
 const app = new Koa();
 const router = new Router();
+
+AppDataSource.initialize()
+    .then(() => {
+        logger.info('AppDataSource initialized');
+    })
+    .catch((err) => {
+        logger.error('Error during AppDataSource initialization:', err);
+        process.exit(1)
+    });
 
 app.use(async (ctx, next) => {
     const start = Date.now();
@@ -31,6 +46,7 @@ app
     .use(router.routes())
     .use(router.allowedMethods());
 
+router.use('/api', mangaRouter.routes(), mangaRouter.allowedMethods());
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

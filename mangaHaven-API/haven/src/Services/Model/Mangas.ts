@@ -1,11 +1,11 @@
-class Mangas  implements Mangas {
+export class Mangas {
     private _title: string;
     private _description: string;
     private _author: string;
-    private _genres: string[];
+    private _genres: string; // Adjust type to match the database schema
     private _url: string;
 
-    constructor(title: string, description: string, author: string, genres: string[], url: string) {
+    constructor(title: string, description: string, author: string, genres: string, url: string) {
         this._title = title;
         this._description = description;
         this._author = author;
@@ -26,7 +26,7 @@ class Mangas  implements Mangas {
         return this._author;
     }
 
-    get genres(): string[] {
+    get genres(): string {
         return this._genres;
     }
 
@@ -47,7 +47,7 @@ class Mangas  implements Mangas {
         this._author = value;
     }
 
-    set genres(value: string[]) {
+    set genres(value: string) {
         this._genres = value;
     }
 
