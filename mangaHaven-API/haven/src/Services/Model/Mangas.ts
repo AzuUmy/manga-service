@@ -1,16 +1,17 @@
+import {Author} from "../Database/Entity/Author";
+import {Cover} from "../Database/Entity/Cover";
+
 export class Mangas {
     private _title: string;
     private _description: string;
-    private _author: string;
-    private _genres: string; // Adjust type to match the database schema
-    private _url: string;
+    private _author: Author; // Change type to Author
+    private _cover: Cover;
 
-    constructor(title: string, description: string, author: string, genres: string, url: string) {
+    constructor(title: string, description: string, author: Author, cover: Cover) {
         this._title = title;
         this._description = description;
         this._author = author;
-        this._genres = genres;
-        this._url = url;
+        this._cover = cover;
     }
 
     // Getters
@@ -22,16 +23,14 @@ export class Mangas {
         return this._description;
     }
 
-    get author(): string {
+    get author(): Author {
         return this._author;
     }
 
-    get genres(): string {
-        return this._genres;
-    }
 
-    get url(): string {
-        return this._url;
+
+    get url(): Cover {
+        return this._cover;
     }
 
     // Setters
@@ -43,15 +42,12 @@ export class Mangas {
         this._description = value;
     }
 
-    set author(value: string) {
+    set author(value: Author) {
         this._author = value;
     }
 
-    set genres(value: string) {
-        this._genres = value;
-    }
 
-    set url(value: string) {
-        this._url = value;
+    set url(value: Cover) {
+        this._cover = value;
     }
 }

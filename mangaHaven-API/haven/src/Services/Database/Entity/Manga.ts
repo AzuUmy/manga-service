@@ -1,22 +1,26 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Author } from './Author';
+import { Cover } from './Cover';
 
-@Entity()
+@Entity('mangas') // Ensure this matches your database table name
 export class Manga {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({ type: 'varchar', length: 255 })
     title: string;
 
-    @Column()
+    @Column({ type: 'text', nullable: true })
     description: string;
 
-    @Column()
-    author: string;
+    @Column({ name: 'cover_id' })
+    coverId: number;
 
-    @Column("text")
-    genres: string; // Use "text" for large text fields, or use a JSON type if available.
+    @ManyToOne(() => Author, author => author.id)
+    @JoinColumn({ name: 'author_id' })
+    author: Author;
 
-    @Column()
-    url: string;
+    @ManyToOne(() => Cover, { nullable: true })
+    @JoinColumn({ name: 'cover_id' }) // Ensure this matches your database column name
+    cover: Cover;
 }

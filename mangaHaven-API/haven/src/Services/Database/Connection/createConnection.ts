@@ -2,6 +2,8 @@ import 'reflect-metadata';
 import { DataSource } from "typeorm";
 import logger from '../../../Logs/logger';
 import { Manga } from "../Entity/Manga";
+import { Author } from "../Entity/Author";
+import { Cover } from "../Entity/Cover";
 
 
 export const AppDataSource = new DataSource({
@@ -11,9 +13,9 @@ export const AppDataSource = new DataSource({
     username: 'root',
     password: '',
     database: 'haven',
-    synchronize: true,
+    synchronize: false,
     logging: true,
-    entities: [Manga],
+    entities: [Manga,Author,Cover],
     migrations: [],
     subscribers: [],
 });

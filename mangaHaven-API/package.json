@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node haven/src/index.ts"
+    "start": "ts-node haven/src/index.ts",
+    "clear-cache": "ts-node haven/Settings/ClearTypeOrmCache.ts",
+    "migrate": "ts-node haven/Settings/OrmMigration.ts"
   },
   "keywords": [],
   "author": "",
