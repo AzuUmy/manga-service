@@ -1,8 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, ManyToMany, JoinTable } from 'typeorm';
 import { Author } from './Author';
 import { Cover } from './Cover';
+import { Genres } from './Genres';
 
-@Entity('mangas') // Ensure this matches your database table name
+@Entity('mangas')
 export class Manga {
     @PrimaryGeneratedColumn()
     id: number;
@@ -21,6 +22,20 @@ export class Manga {
     author: Author;
 
     @ManyToOne(() => Cover, { nullable: true })
-    @JoinColumn({ name: 'cover_id' }) // Ensure this matches your database column name
+    @JoinColumn({ name: 'cover_id' })
     cover: Cover;
+
+    @ManyToMany(() => Genres, genre => genre.mangas)
+    @JoinTable({
+        name: 'categories',
+        joinColumn: {
+            name: 'manga_id',
+            referencedColumnName: 'id'
+        },
+        inverseJoinColumn: {
+            name: 'genre_id',
+            referencedColumnName: 'id'
+        }
+    })
+    genres: Genres[];
 }

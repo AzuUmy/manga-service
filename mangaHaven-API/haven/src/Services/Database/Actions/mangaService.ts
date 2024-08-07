@@ -8,7 +8,8 @@ export class MangaService {
 
     async getAllManga(): Promise<Mangas[]> {
         try {
-            const mangaEntities = await this.mangaRepository.find({ relations: ['author', 'cover'] }); // Ensure relations are fetched
+            const mangaEntities = await this.mangaRepository.find({ relations:
+                    ['author', 'cover', 'genres'] });
 
             logger.info('Retrieving manga data', mangaEntities);
 
@@ -18,7 +19,14 @@ export class MangaService {
             }
 
             const mangaModels = mangaEntities.map(entity =>
-                new Mangas(entity.title, entity.description, entity.author, entity.cover)
+                new Mangas(
+                    entity.title,
+                    entity.description,
+                    entity.author,
+                    entity.cover,
+                    entity.id,
+                    entity.genres
+                )
             );
 
             return mangaModels;

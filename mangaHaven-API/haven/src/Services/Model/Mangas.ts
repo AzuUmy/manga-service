@@ -1,13 +1,18 @@
-import {Author} from "../Database/Entity/Author";
-import {Cover} from "../Database/Entity/Cover";
+import { Author } from "../Database/Entity/Author";
+import { Cover } from "../Database/Entity/Cover";
+import { Genre } from "../Model/Genre";
+import { Genres } from "../Database/Entity/Genres";
+import { mangasInterface } from "../../Interfaces/MangasInterface";
 
-export class Mangas {
+export class Mangas extends Genre implements mangasInterface {
     private _title: string;
     private _description: string;
-    private _author: Author; // Change type to Author
+    private _author: Author;
     private _cover: Cover;
 
-    constructor(title: string, description: string, author: Author, cover: Cover) {
+    constructor(title: string,
+                description: string, author: Author, cover: Cover,   id: number, genres: Genres[] ) {
+        super(id, genres);
         this._title = title;
         this._description = description;
         this._author = author;
@@ -27,10 +32,12 @@ export class Mangas {
         return this._author;
     }
 
-
-
     get url(): Cover {
         return this._cover;
+    }
+
+    get genres(): Genres[] {
+        return super.genres;
     }
 
     // Setters
@@ -49,5 +56,9 @@ export class Mangas {
 
     set url(value: Cover) {
         this._cover = value;
+    }
+
+    set genres(value: Genres[]) {
+        super.genres = value;
     }
 }
