@@ -61,4 +61,14 @@ export class Mangas extends Genre implements mangasInterface {
     set genres(value: Genres[]) {
         super.genres = value;
     }
+
+    toJSON(): object {
+        return {
+            title: this.title,
+            description: this.description,
+            author: this.author.name,
+            coverUrl: this.url.url,
+            genres: this.genres
+        };
+    }
 }

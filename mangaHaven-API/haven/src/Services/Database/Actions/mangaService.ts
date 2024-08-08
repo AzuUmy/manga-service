@@ -1,7 +1,7 @@
 import { AppDataSource } from '../Connection/createConnection';
-import { Manga } from '../Entity/Manga';
-import { Mangas } from '../../Model/Mangas';
-import logger from '../../../Logs/logger';
+import { Manga } from "../Entity/Manga";
+import { Mangas } from "../../Model/Mangas";
+import logger from "../../../Logs/logger";
 
 export class MangaService {
     private mangaRepository = AppDataSource.getRepository(Manga);
@@ -19,8 +19,7 @@ export class MangaService {
             }
 
             const mangaModels = mangaEntities.map(entity =>
-                new Mangas(
-                    entity.title,
+                new Mangas(   entity.title,
                     entity.description,
                     entity.author,
                     entity.cover,

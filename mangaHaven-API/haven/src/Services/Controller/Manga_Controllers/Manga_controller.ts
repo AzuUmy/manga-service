@@ -1,5 +1,5 @@
 import { Context } from 'koa';
-import { MangaService } from '../../Database/Actions/mangaService';
+import { MangaService } from '../../Database/Actions/MangaService';
 import logger from '../../../Logs/logger';
 import { middleWareError } from '../../../Error/MidleWareError';
 
@@ -7,8 +7,7 @@ const mangaService = new MangaService();
 
 export const getAllMangas = async (ctx: Context): Promise<void> => {
     try {
-        const mangaList = await mangaService.getAllManga();
-        ctx.body = mangaList;
+        ctx.body = await mangaService.getAllManga();
     } catch (err) {
         const error = err as middleWareError;
         logger.error('Error requesting all Manga', error);
