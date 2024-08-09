@@ -1,7 +1,7 @@
 import {Context} from "koa";
 import { CoverService } from "../../Database/Actions/CoverService";
-import logger from '../../../Logs/logger';
-import { middleWareError } from '../../../Error/MidleWareError';
+import logger from "../../../Logs/logger";
+import { middleWareError } from "../../../Error/MidleWareError";
 
 const coverService = new CoverService();
 

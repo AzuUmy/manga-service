@@ -1,10 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('author')
 export class Author {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ name: 'author' })
-    name: string;
+    @Column({ type: 'varchar', length: 255 })
+    author: string;
 }

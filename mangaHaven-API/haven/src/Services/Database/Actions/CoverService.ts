@@ -1,7 +1,7 @@
 import { AppDataSource } from "../Connection/createConnection";
 import { Manga } from "../Entity/Manga";
 import logger from "../../../Logs/logger";
-import {MangasCover} from "../../../Dto/MangasCover";
+import { MangasCover } from "../../../Dto/MangasCover";
 
 export class CoverService {
     private mangaRepository = AppDataSource.getRepository(Manga);

@@ -9,6 +9,8 @@ import { middleWareError } from './Error/MidleWareError';
 //action imports
 import mangaRouter from './Services/Routes/MangasRouter';
 import coverRouter from './Services/Routes/CoverRouter';
+import authorRouter from './Services/Routes/AuthorRouter';
+import genresRouter from './Services/Routes/GenresRouter';
 import * as process from "node:process";
 
 const app = new Koa();
@@ -49,6 +51,8 @@ app
 
 router.use('/api', mangaRouter.routes(), mangaRouter.allowedMethods());
 router.use('/api', coverRouter.routes(), coverRouter.allowedMethods());
+router.use('/api', authorRouter.routes(), authorRouter.allowedMethods());
+router.use('/api', genresRouter.routes(), genresRouter.allowedMethods());
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

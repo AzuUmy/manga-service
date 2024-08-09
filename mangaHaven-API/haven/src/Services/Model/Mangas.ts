@@ -66,7 +66,7 @@ export class Mangas extends Genre implements mangasInterface {
         return {
             title: this.title,
             description: this.description,
-            author: this.author.name,
+            author: this.author.author,
             coverUrl: this.url.url,
             genres: this.genres
         };

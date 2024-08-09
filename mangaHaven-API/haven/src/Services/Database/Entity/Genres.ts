@@ -11,4 +11,6 @@ export class Genres {
 
     @ManyToMany(() => Manga, manga => manga.genres)
     mangas: Manga[];
+
+
 }

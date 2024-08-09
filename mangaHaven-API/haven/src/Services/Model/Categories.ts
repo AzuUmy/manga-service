@@ -1,29 +1,30 @@
+import { GenreInterface } from "../../Interfaces/GenreInterface";
+
 export class Categories {
+    private _id: number;
+    private _genres: string;
 
-    private _genre_id: number;
-    private _manga_id: number;
 
-
-    constructor(genre_id: number, manga_id: number) {
-        this._genre_id = genre_id;
-        this._manga_id = manga_id;
+    constructor(id: number, genres: string) {
+        this._id = id;
+        this._genres = genres;
     }
 
-    //Getters
-    get genre_id(): number {
-        return this._genre_id;
+
+    get id(): number {
+        return this._id;
     }
 
-    get manga_id(): number {
-        return this._manga_id;
+    get genres(): string {
+        return this._genres;
     }
 
-    //Setters
-    set genre_id(value: number) {
-        this._genre_id = value;
+
+    set id(value: number) {
+        this._id = value;
     }
 
-    set manga_id(value: number) {
-        this._manga_id = value;
+    set genres(value: string) {
+        this._genres = value;
     }
 }
