@@ -1,6 +1,4 @@
-import { DataSource } from 'typeorm';
 import { AppDataSource } from '../src/Services/Database/Connection/createConnection';
-
 
 async function runMigrations() {
     await AppDataSource.initialize();

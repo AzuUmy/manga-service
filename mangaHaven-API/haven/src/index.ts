@@ -1,4 +1,3 @@
-//import { Manga } from "./Services/Database/Entity/Manga";
 import Koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
@@ -56,5 +55,5 @@ router.use('/api', genresRouter.routes(), genresRouter.allowedMethods());
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.info(`Server init listening on ${PORT}`);
+    logger.info(`Server init listening on ${PORT}`);
 });

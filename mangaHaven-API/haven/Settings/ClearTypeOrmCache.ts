@@ -1,4 +1,3 @@
-import { DataSource } from 'typeorm';
 import { AppDataSource } from '../src/Services/Database/Connection/createConnection';
 import { Manga } from '../src/Services/Database/Entity/Manga';
 

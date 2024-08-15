@@ -1,5 +1,3 @@
-import { GenreInterface } from "../../Interfaces/GenreInterface";
-
 export class Categories {
     private _id: number;
     private _genres: string;

@@ -1,6 +1,6 @@
 import { Author } from "../Database/Entity/Author";
 import { Cover } from "../Database/Entity/Cover";
-import { Genre } from "../Model/Genre";
+import { Genre } from "./Genre";
 import { Genres } from "../Database/Entity/Genres";
 import { mangasInterface } from "../../Interfaces/MangasInterface";
 
