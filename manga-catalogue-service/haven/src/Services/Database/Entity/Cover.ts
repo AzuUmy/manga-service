@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Manga } from './Manga';
 
-@Entity('cover') // Ensure this matches your database table name
+@Entity('cover')
 export class Cover {
     @PrimaryGeneratedColumn()
     id: number;

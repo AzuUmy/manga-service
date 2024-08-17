@@ -1,5 +1,5 @@
 import { Context } from 'koa';
-import { MangaService } from '../../Database/Actions/MangaService';
+import { MangaService } from '../../Database/Actions/mangaService';
 import logger from '../../../Logs/logger';
 import { middleWareError } from '../../../Error/MidleWareError';
 
