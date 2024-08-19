@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
-import { Manga } from './Manga';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
+import { Manga } from "./Manga";
 
 @Entity('genres')
 export class Genres {
@@ -11,6 +11,4 @@ export class Genres {
 
     @ManyToMany(() => Manga, manga => manga.genres)
     mangas: Manga[];
-
-
 }

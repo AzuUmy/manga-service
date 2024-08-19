@@ -5,6 +5,7 @@ import { Manga } from "../Entity/Manga";
 import { Author } from "../Entity/Author";
 import { Cover } from "../Entity/Cover";
 import { Genres } from "../Entity/Genres";
+import { Volume } from "../Entity/Volume";
 import * as dotenv from "dotenv";
 
 const envFile = process.env.NODE_ENV === 'production' ? '.env-production' : '.env-development';
@@ -17,9 +18,9 @@ export const AppDataSource = new DataSource({
     username: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
-    synchronize: true,
+    synchronize: false,
     logging: true,
-    entities: [Manga,Author,Cover, Genres],
+    entities: [Manga,Author,Cover, Genres, Volume],
     migrations: [],
     subscribers: [],
 });

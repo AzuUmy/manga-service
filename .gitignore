@@ -4,6 +4,7 @@ combined.log
 error.log
 .idea
 ormconfig.json
+Env
 .env
 .env-development
 .env-production

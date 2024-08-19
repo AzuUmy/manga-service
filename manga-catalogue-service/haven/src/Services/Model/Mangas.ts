@@ -2,6 +2,8 @@ import { Author } from "../Database/Entity/Author";
 import { Cover } from "../Database/Entity/Cover";
 import { Genre } from "./Genre";
 import { Genres } from "../Database/Entity/Genres";
+import { Volume } from "../Database/Entity/Volume";
+import { Volumes } from "./Volumes";
 import { mangasInterface } from "../../Interfaces/MangasInterface";
 
 export class Mangas extends Genre implements mangasInterface {
@@ -9,14 +11,17 @@ export class Mangas extends Genre implements mangasInterface {
     private _description: string;
     private _author: Author;
     private _cover: Cover;
+    private _volumes: Volume[];
 
     constructor(title: string,
-                description: string, author: Author, cover: Cover,   id: number, genres: Genres[] ) {
+                description: string, author: Author, 
+                cover: Cover,   id: number, genres: Genres[], volumes: Volume[] ) {
         super(id, genres);
         this._title = title;
         this._description = description;
         this._author = author;
         this._cover = cover;
+        this._volumes = volumes;
     }
 
     // Getters
@@ -38,6 +43,10 @@ export class Mangas extends Genre implements mangasInterface {
 
     get genres(): Genres[] {
         return super.genres;
+    }
+
+    get volumes(): Volume[] {
+        return this._volumes;
     }
 
     // Setters
@@ -62,13 +71,18 @@ export class Mangas extends Genre implements mangasInterface {
         super.genres = value;
     }
 
+    set volumes(value: Volume[]) {
+        this._volumes = value;
+    }
+
     toJSON(): object {
         return {
             title: this.title,
             description: this.description,
             author: this.author.author,
             coverUrl: this.url.url,
-            genres: this.genres
+            genres: this.genres,
+            volumes: this.volumes
         };
     }
 }

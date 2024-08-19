@@ -1,7 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, ManyToMany, JoinTable, OneToMany } from 'typeorm';
 import { Author } from './Author';
 import { Cover } from './Cover';
 import { Genres } from './Genres';
+import { Volume } from './Volume';
 
 @Entity('mangas')
 export class Manga {
@@ -38,4 +39,7 @@ export class Manga {
         }
     })
     genres: Genres[];
+
+    @OneToMany(() => Volume, volumes => volumes.manga)
+    volumes: Volume[];
 }

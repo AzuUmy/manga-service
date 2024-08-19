@@ -9,7 +9,7 @@ export class MangaService {
     async getAllManga(): Promise<Mangas[]> {
         try {
             const mangaEntities = await this.mangaRepository.find({ relations:
-                    ['author', 'cover', 'genres'] });
+                    ['author', 'cover', 'genres', 'volumes'] });
 
             logger.info('Retrieving manga data', mangaEntities);
 
@@ -24,7 +24,8 @@ export class MangaService {
                     entity.author,
                     entity.cover,
                     entity.id,
-                    entity.genres
+                    entity.genres,
+                    entity.volumes
                 )
             );
 
