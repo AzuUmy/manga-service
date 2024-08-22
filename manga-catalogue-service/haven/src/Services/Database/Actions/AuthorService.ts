@@ -4,9 +4,11 @@ import { Authors } from "../../Model/Authors";
 import logger from "../../../Logs/logger";
 
 
+
 export class AuthorService {
     private authorRepository = AppDataSource.getRepository(Author);
 
+    // method for queryng authors
   async getAllAuthors(): Promise<Authors[]> {
         try {
             const authorEntities = await this.authorRepository.find();

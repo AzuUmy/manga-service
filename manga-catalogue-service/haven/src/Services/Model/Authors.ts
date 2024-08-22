@@ -1,5 +1,6 @@
 import { AuthorsInterface } from "../../Interfaces/AuthorsInterface";
 
+// Models for Authors
 export class Authors implements AuthorsInterface {
     private _id: number;
     private _author: string;

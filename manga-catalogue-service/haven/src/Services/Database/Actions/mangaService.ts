@@ -6,6 +6,8 @@ import logger from "../../../Logs/logger";
 export class MangaService {
     private mangaRepository = AppDataSource.getRepository(Manga);
 
+    
+    // method for queryng Mangas
     async getAllManga(): Promise<Mangas[]> {
         try {
             const mangaEntities = await this.mangaRepository.find({ relations:

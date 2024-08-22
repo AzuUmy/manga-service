@@ -1,5 +1,4 @@
-import { Volume } from "../Services/Database/Entity/Volume";
-
+//Volumes interface
 export interface VolumesInterface {
    id: number;
    manga_id: number;

@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
 import { Manga } from "./Manga";
-
+//  Genres Entity
 @Entity('genres')
 export class Genres {
     @PrimaryGeneratedColumn()
@@ -8,7 +8,7 @@ export class Genres {
 
     @Column({ type: 'varchar', length: 255 })
     genres: string;
-
+// perform a query of many to one for mangas
     @ManyToMany(() => Manga, manga => manga.genres)
     mangas: Manga[];
 }

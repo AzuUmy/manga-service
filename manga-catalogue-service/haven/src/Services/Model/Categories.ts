@@ -1,3 +1,5 @@
+
+// Models for Cateegories
 export class Categories {
     private _id: number;
     private _genres: string;

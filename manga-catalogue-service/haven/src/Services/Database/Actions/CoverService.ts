@@ -1,11 +1,13 @@
 import { AppDataSource } from "../Connection/createConnection";
 import { Manga } from "../Entity/Manga";
 import logger from "../../../Logs/logger";
-import { MangasCover } from "../../../Dto/MangasCover";
+import { MangasCover } from "../../../DTO/MangasCover";
 
 export class CoverService {
+
     private mangaRepository = AppDataSource.getRepository(Manga);
 
+    // method for queryng covers and title - returns thee cover and the title of a manga
     async getCoverAndTitle(): Promise<MangasCover[]> {
         try{
          const mangaEntities = await this.mangaRepository.createQueryBuilder('mangas')

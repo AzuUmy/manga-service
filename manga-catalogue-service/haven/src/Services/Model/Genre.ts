@@ -1,6 +1,6 @@
 import { GenreInterface } from "../../Interfaces/GenreInterface";
 import { Genres } from "../Database/Entity/Genres";
-
+// Models for Genre
 export class Genre implements GenreInterface {
     private _id: number;
     private _genres: Genres[];

@@ -3,9 +3,8 @@ import { Cover } from "../Database/Entity/Cover";
 import { Genre } from "./Genre";
 import { Genres } from "../Database/Entity/Genres";
 import { Volume } from "../Database/Entity/Volume";
-import { Volumes } from "./Volumes";
 import { mangasInterface } from "../../Interfaces/MangasInterface";
-
+// Models for Mangas
 export class Mangas extends Genre implements mangasInterface {
     private _title: string;
     private _description: string;
@@ -75,6 +74,8 @@ export class Mangas extends Genre implements mangasInterface {
         this._volumes = value;
     }
 
+
+    // this edit the way the json file is displayed when reequesting the body for better readability
     toJSON(): object {
         return {
             title: this.title,

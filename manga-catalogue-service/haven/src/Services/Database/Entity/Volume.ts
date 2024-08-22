@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
 import { Manga } from "./Manga";
-
+// Volumees Entity
 @Entity('volumes')
 export class Volume {
    @PrimaryGeneratedColumn()
@@ -18,6 +18,7 @@ export class Volume {
    @Column({ type: 'date'})
    realease_date: Date;
 
+   //// perform a query of many to one for mangas and joins collum with manga table
    @ManyToOne(() => Manga, manga => manga.volumes)
    @JoinColumn({ name: 'manga_id' })
    manga: Manga;

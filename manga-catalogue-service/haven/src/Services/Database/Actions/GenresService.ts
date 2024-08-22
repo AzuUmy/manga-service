@@ -7,6 +7,7 @@ import logger from "../../../Logs/logger";
 export class GenresService {
     private genreRepository = AppDataSource.getRepository(Genres);
 
+    // method for queryng genres
     async getAllGenres(): Promise<Categories[]> {
         try {
             const genresEntities = await this.genreRepository.find();

@@ -1,5 +1,5 @@
 import { VolumesInterface } from "../../Interfaces/VolumesInterface";
-
+// Models for Volumes
 export class Volumes implements VolumesInterface {
    private _id: number;
    private _manga_id: number;
