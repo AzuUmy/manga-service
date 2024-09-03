@@ -8,12 +8,18 @@ export class CoverService {
     private mangaRepository = AppDataSource.getRepository(Manga);
 
     // method for queryng covers and title - returns thee cover and the title of a manga
-    async getCoverAndTitle(): Promise<MangasCover[]> {
+    async getCoverAndTitle(title?: string): Promise<MangasCover[]> {
         try{
-         const mangaEntities = await this.mangaRepository.createQueryBuilder('mangas')
-             .leftJoinAndSelect('mangas.cover', 'cover')
-             .select(['mangas.id', 'mangas.title', 'cover.id', 'cover.url'])
-             .getMany();
+
+         let queryBuilder = this.mangaRepository.createQueryBuilder('mangas')
+                .leftJoinAndSelect('mangas.cover', 'cover')
+                .select(['mangas.id', 'mangas.title', 'cover.id', 'cover.url']);
+
+                if (title) {
+                    queryBuilder = queryBuilder.where('mangas.title LIKE :title', { title: `%${title}%` });
+                }
+    
+                const mangaEntities = await queryBuilder.getMany();
 
          logger.info('Retrieving manga data', mangaEntities);
 

@@ -10,6 +10,7 @@ import mangaRouter from './Services/Routes/MangasRouter';
 import coverRouter from './Services/Routes/CoverRouter';
 import authorRouter from './Services/Routes/AuthorRouter';
 import genresRouter from './Services/Routes/GenresRouter';
+import trandingTitles from './Services/Routes/getTranding';
 import * as process from "node:process";
 
 const app = new Koa();
@@ -52,6 +53,7 @@ router.use('/api', mangaRouter.routes(), mangaRouter.allowedMethods());
 router.use('/api', coverRouter.routes(), coverRouter.allowedMethods());
 router.use('/api', authorRouter.routes(), authorRouter.allowedMethods());
 router.use('/api', genresRouter.routes(), genresRouter.allowedMethods());
+router.use('/api', trandingTitles.routes(), trandingTitles.allowedMethods());
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
