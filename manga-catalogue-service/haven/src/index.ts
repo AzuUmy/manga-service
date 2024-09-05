@@ -11,6 +11,7 @@ import coverRouter from './Services/Routes/CoverRouter';
 import authorRouter from './Services/Routes/AuthorRouter';
 import genresRouter from './Services/Routes/GenresRouter';
 import trandingTitles from './Services/Routes/getTranding';
+import search from './Services/Routes/SearchRouter';
 import * as process from "node:process";
 
 const app = new Koa();
@@ -54,6 +55,7 @@ router.use('/api', coverRouter.routes(), coverRouter.allowedMethods());
 router.use('/api', authorRouter.routes(), authorRouter.allowedMethods());
 router.use('/api', genresRouter.routes(), genresRouter.allowedMethods());
 router.use('/api', trandingTitles.routes(), trandingTitles.allowedMethods());
+router.use('/api', search.routes(), search.allowedMethods());
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
